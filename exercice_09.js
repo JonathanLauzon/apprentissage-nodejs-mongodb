@@ -17,3 +17,23 @@ MongoClient.connect('mongodb://jonathan-lauzon:e1206261@ds053764.mlab.com:53764/
 }
 
 
+app.post('/ajouter', urlencodedParser, function (req, res) {
+
+	nouvelUtilisateur = {
+		nom:req.body.nom,
+		prenom:req.body.prenom,
+		telephone:req.body.telephone,
+		ville:req.body.ville,
+		codepostal:req.body.codepostal,
+		lamethode: "POST"
+	};
+	console.log('reponse');
+
+	var lUtilisateur = JSON.stringify(nouvelUtilisateur);
+
+	db.collection('adresses').save(lUtilisateur, (err, result) => {
+		if (err) return console.log(err);
+		console.log('sauvegarder dans la BD');
+		res.redirect('/');
+	});
+})
