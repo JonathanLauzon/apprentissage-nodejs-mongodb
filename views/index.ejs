@@ -7,8 +7,8 @@
 		<div id="tableau">
 			<% if (liste) { %>
 				<table>
-				<% for (unElement in liste) { %>
-					<tr><td><%= unElement.nom %></td><td><%= unElement.prenom %></td><td><%= unElement.telephone %></td><td><%= unElement.ville %></td><td><%= unElement.codepostal %></td></tr>
+				<% for (var i = 0; i < liste.length; i++) { %>
+					<tr><td><%= liste[i].nom %></td><td><%= liste[i].prenom %></td><td><%= liste[i].telephone %></td><td><%= liste[i].ville %></td><td><%= liste[i].codepostal %></td></tr>
 				<% } %>
 				</table>
 			<% } %>
